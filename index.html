@@ -83,13 +83,24 @@ main{min-width:0}
 .bul li::before{content:"";position:absolute;left:0;top:.72em;width:5px;height:5px;border-radius:50%;background:var(--muted)}
 
 /* research interests and cards */
-.interests{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
-.interest{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--fc,var(--muted));border-radius:14px;padding:clamp(18px,2.2vw,28px)}
+.interests{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(16px,2.4vw,28px)}
+.interest{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(240px,1fr);gap:clamp(20px,3vw,44px);align-items:start;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--fc,var(--muted));border-radius:14px;padding:clamp(18px,2.2vw,28px)}
+.itext{min-width:0}
+.interest .bul{margin-top:.85rem;gap:.7rem;line-height:1.7}
+.interest .bul li::before{background:var(--fc,var(--muted))}
+.proj{min-width:0;padding-left:clamp(18px,2.6vw,36px);border-left:1px solid var(--line)}
+.proj h4{margin:0;font-size:.8125rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.bubs{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.bub{display:inline-flex;align-items:center;gap:.45rem;font-size:.875rem;line-height:1.3;color:var(--head);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.32rem .8rem;text-decoration:none}
+.bub i{width:8px;height:8px;border-radius:50%;background:var(--fc,var(--muted));flex:none}
+a.bub{transition:border-color .15s,color .15s}
+a.bub:hover,a.bub:focus-visible{border-color:var(--accent);color:var(--accent)}
+a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
+@media (max-width:860px){.interest{grid-template-columns:minmax(0,1fr)}.proj{padding-left:0;border-left:0;padding-top:1rem;border-top:1px solid var(--line)}}
 .kicker{display:flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
 .kicker i{width:9px;height:9px;border-radius:50%;background:var(--fc,var(--muted));flex:none}
 .interest h3{margin-top:.55rem;font-size:1.25rem;line-height:1.3}
 .interest p{margin-top:.7rem;line-height:1.7}
-.rel{margin-top:.9rem;font-size:.9rem;color:var(--muted)}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,2.4vw,28px)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.2vw,28px)}
 .interest:nth-child(4n+2),.card:nth-child(4n+2),.paper:nth-child(4n+2){--card:var(--t2)}
@@ -281,33 +292,85 @@ main{min-width:0}
 
       <div class="interests gap">
         <article class="interest" style="--fc:var(--c-alignment)">
-          <p class="kicker"><i></i>AI alignment and safety</p>
-          <h3>How do models behave under pressure, and can we measure it?</h3>
-          <p>A model that answers correctly in a neutral chat can give the answer up when a user pushes back. A single push shows that sycophancy exists, but not how it scales, so I study how behavior changes as the pressure grows. A related question is whether a model can tell when its own reasoning has been edited, since chains of thought are routinely edited for safety and evaluation.</p>
-          <p>I also look at model uncertainty, using hidden-state classifiers together with external consistency checks to catch hallucinations.</p>
-          <p class="rel">Related: <a href="https://github.com/SathvikNapa/SycophancyDosageResponse" target="_blank" rel="noopener noreferrer">SycophancyDosageResponse</a>, <a href="https://github.com/SathvikNapa/SycophancyEval" target="_blank" rel="noopener noreferrer">SycophancyEval</a>, <a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">chain-of-thought tampering paper</a></p>
+          <div class="itext">
+            <p class="kicker"><i></i>AI alignment and safety</p>
+            <h3>How do models behave under pressure, and can we measure it?</h3>
+            <ul class="bul">
+              <li>A model that answers correctly in a neutral chat can give the answer up when a user pushes back. A single push shows that sycophancy exists, but not how it scales, so I study how behavior changes as the pressure grows.</li>
+              <li>A related question is whether a model can tell when its own reasoning has been edited, since chains of thought are routinely edited for safety and evaluation.</li>
+              <li>I also look at model uncertainty, using hidden-state classifiers together with external consistency checks to catch hallucinations.</li>
+            </ul>
+          </div>
+          <div class="proj">
+            <h4>Related projects</h4>
+            <div class="bubs">
+            <a class="bub" href="https://github.com/SathvikNapa/SycophancyDosageResponse" target="_blank" rel="noopener noreferrer"><i></i>SycophancyDosageResponse</a>
+            <a class="bub" href="https://github.com/SathvikNapa/SycophancyEval" target="_blank" rel="noopener noreferrer"><i></i>SycophancyEval</a>
+            <a class="bub" href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer"><i></i>Chain-of-thought tampering</a>
+            <span class="bub"><i></i>Uncertainty auditing</span>
+            <a class="bub" href="https://github.com/SathvikNapa/MCQEvaluations" target="_blank" rel="noopener noreferrer"><i></i>Oncology factuality evaluation</a>
+            <a class="bub" href="https://survey.support360.org/" target="_blank" rel="noopener noreferrer"><i></i>SurvQuire</a>
+            </div>
+          </div>
         </article>
 
         <article class="interest" style="--fc:var(--c-language)">
-          <p class="kicker"><i></i>Language and multimodal modeling</p>
-          <h3>What do speech and other modalities carry that text drops?</h3>
-          <p>People in a good conversation drift toward each other's tone and emotion, and speech carries timing, overlap, dialect, and stance that a transcript loses. I work on models that read this context: who is talking, to whom, and what came before.</p>
-          <p>The same question runs the other way for machines. Current speech-to-speech models score well on audio quality and speech recognition, and still differ from people in timing, overlap, dialect, emotional adaptation, and stance.</p>
-          <p class="rel">Related: <a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">TRACE</a>, <a href="https://huggingface.co/datasets/SathvikNapa/TRACE" target="_blank" rel="noopener noreferrer">TRACE dataset</a>, <a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">SPEARBench</a></p>
+          <div class="itext">
+            <p class="kicker"><i></i>Language and multimodal modeling</p>
+            <h3>What do speech and other modalities carry that text drops?</h3>
+            <ul class="bul">
+              <li>People in a good conversation drift toward each other's tone and emotion, and speech carries timing, overlap, dialect, and stance that a transcript loses.</li>
+              <li>I work on models that read this context: who is talking, to whom, and what came before.</li>
+              <li>The same question runs the other way for machines. Current speech-to-speech models score well on audio quality and speech recognition, and still differ from people in timing, overlap, dialect, emotional adaptation, and stance.</li>
+            </ul>
+          </div>
+          <div class="proj">
+            <h4>Related projects</h4>
+            <div class="bubs">
+            <a class="bub" href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer"><i></i>TRACE</a>
+            <a class="bub" href="https://huggingface.co/datasets/SathvikNapa/TRACE" target="_blank" rel="noopener noreferrer"><i></i>TRACE dataset</a>
+            <a class="bub" href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer"><i></i>SPEARBench</a>
+            <a class="bub" href="https://endoscribe-prod.fly.dev/" target="_blank" rel="noopener noreferrer"><i></i>EndoScribe</a>
+            </div>
+          </div>
         </article>
 
         <article class="interest" style="--fc:var(--c-agents)">
-          <p class="kicker"><i></i>Multi-agent systems</p>
-          <h3>What happens when agents act and coordinate on their own?</h3>
-          <p>I build multi-agent systems, such as an extraction pipeline on LangGraph and AWS Bedrock with schema enforcement and data-quality checks. I want to understand where systems of agents fail, drift, or disagree, how much oversight they need, and how to evaluate them before they are deployed.</p>
+          <div class="itext">
+            <p class="kicker"><i></i>Multi-agent systems</p>
+            <h3>What happens when agents act and coordinate on their own?</h3>
+            <ul class="bul">
+              <li>I build multi-agent systems, such as an extraction pipeline on LangGraph and AWS Bedrock with schema enforcement and data-quality checks.</li>
+              <li>I want to understand where systems of agents fail, drift, or disagree.</li>
+              <li>I also want to understand how much oversight they need, and how to evaluate them before they are deployed.</li>
+            </ul>
+          </div>
+          <div class="proj">
+            <h4>Related projects</h4>
+            <div class="bubs">
+            <span class="bub"><i></i>Multi-agent extraction pipeline</span>
+            <a class="bub" href="https://github.com/SathvikNapa/rosterd" target="_blank" rel="noopener noreferrer"><i></i>rosterd</a>
+            <span class="bub"><i></i>Production agents and RAG</span>
+            </div>
+          </div>
         </article>
 
         <article class="interest" style="--fc:var(--c-rsi)">
-          <p class="kicker"><i></i>Recursive self-improvement</p>
-          <h3>What happens when a system changes itself?</h3>
-          <p>Recursive self-improvement is, in practice, a reinforcement learning question. A system that writes its own tasks, scores its own outputs, or trains on its own data is optimizing against a signal it helped define. I want to understand what that signal ends up rewarding, what drifts when it is optimized hard, and whether anyone watching can still tell.</p>
-          <p>The chain-of-thought study is the closest work so far: reasoning traces are one of the few things we can read while a model is being optimized, so it matters whether they can be altered unnoticed.</p>
-          <p class="rel">Related: <a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">chain-of-thought tampering paper</a></p>
+          <div class="itext">
+            <p class="kicker"><i></i>Recursive self-improvement</p>
+            <h3>What happens when a system changes itself?</h3>
+            <ul class="bul">
+              <li>Recursive self-improvement is, in practice, a reinforcement learning question. A system that writes its own tasks, scores its own outputs, or trains on its own data is optimizing against a signal it helped define.</li>
+              <li>I want to understand what that signal ends up rewarding, what drifts when it is optimized hard, and whether anyone watching can still tell.</li>
+              <li>The chain-of-thought study is the closest work so far: reasoning traces are one of the few things we can read while a model is being optimized, so it matters whether they can be altered unnoticed.</li>
+            </ul>
+          </div>
+          <div class="proj">
+            <h4>Related projects</h4>
+            <div class="bubs">
+            <a class="bub" href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer"><i></i>Chain-of-thought tampering</a>
+            </div>
+          </div>
         </article>
       </div>
 
