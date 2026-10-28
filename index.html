@@ -9,18 +9,18 @@
 <style>
 /* Layout: plain academic page. A fixed left column with name and links, one right column of sections. The bio is a short set of stories, each linking to the work behind it. */
 :root{
-  --bg:#ffffff; --card:#f8f1e6; --fg:#3d3731; --head:#1f1a15; --muted:#6f655b; --line:#e9dfd0; --accent:#a8460f;
+  --bg:#ffffff; --card:#fff4e6; --fg:#2e2c3a; --head:#17162b; --muted:#5d5b73; --line:#f0e0cc; --accent:#c2410c; --pop:#f2780c;
   --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#16120e; --card:#1e1913; --fg:#d8cfc3; --head:#f7f0e7; --muted:#a89c8e; --line:#342b22; --accent:#f0a860;
+    --bg:#14131f; --card:#1d1c2c; --fg:#dedcec; --head:#fbfaff; --muted:#a5a3bc; --line:#2f2d45; --accent:#ff9a5c; --pop:#ff9a5c;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#16120e; --card:#1e1913; --fg:#d8cfc3; --head:#f7f0e7; --muted:#a89c8e; --line:#342b22; --accent:#f0a860;
+  --bg:#14131f; --card:#1d1c2c; --fg:#dedcec; --head:#fbfaff; --muted:#a5a3bc; --line:#2f2d45; --accent:#ff9a5c; --pop:#ff9a5c;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -39,6 +39,7 @@ section[id]{scroll-margin-top:64px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:max(clamp(20px,4vw,56px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,4vw,56px),env(safe-area-inset-right,0px))}
 
 /* top bar with tabs */
+.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#65a30d,#f2780c 30%,#ef4a3c 55%,#e11d74 78%,#7c3aed)}
 .top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem 1.4rem;min-height:64px;padding-block:.45rem}
 .brand{font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--head);text-decoration:none}
@@ -46,7 +47,7 @@ section[id]{scroll-margin-top:64px}
 .tabs::-webkit-scrollbar{display:none}
 .tabs a{white-space:nowrap;color:var(--muted);text-decoration:none;font-size:.95rem;padding:.45rem .85rem;border-radius:8px;transition:color .15s,background-color .15s}
 .tabs a:hover{color:var(--accent);background:var(--card)}
-.tabs a[aria-current="true"]{color:var(--head);font-weight:600;background:var(--card)}
+.tabs a[aria-current="true"]{color:var(--head);font-weight:600;background:var(--card);box-shadow:inset 0 -2px 0 var(--pop)}
 .barright{display:flex;align-items:center;gap:.35rem;margin-left:auto}
 .icons{display:flex;gap:.35rem}
 .icons a{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:color .15s,border-color .15s,background-color .15s}
@@ -97,9 +98,9 @@ main{min-width:0}
 .foot{padding-block:2rem;border-top:1px solid var(--line);font-size:.8125rem;color:var(--muted)}
 
 /* network graph */
-:root{--c-alignment:#9a3b5a;--c-rsi:#7b4f9d;--c-language:#2f7d62;--c-agents:#7a8f2c;--c-health:#c2412d;--c-social:#dc7a2a;--c-edu:#b98b5e}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c-alignment:#e27b98;--c-rsi:#b99ae0;--c-language:#62c79f;--c-agents:#b8c75e;--c-health:#ff8c76;--c-social:#ffa45c;--c-edu:#dcb48c}}
-:root[data-theme="dark"]{--c-alignment:#e27b98;--c-rsi:#b99ae0;--c-language:#62c79f;--c-agents:#b8c75e;--c-health:#ff8c76;--c-social:#ffa45c;--c-edu:#dcb48c}
+:root{--c-alignment:#e11d74;--c-rsi:#7c3aed;--c-language:#0d9488;--c-agents:#65a30d;--c-health:#ef4a3c;--c-social:#f2780c;--c-edu:#f0a04b}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c-alignment:#ff7eb6;--c-rsi:#b794ff;--c-language:#4fd1c5;--c-agents:#a3e635;--c-health:#ff7b6b;--c-social:#ffa94d;--c-edu:#ffc078}}
+:root[data-theme="dark"]{--c-alignment:#ff7eb6;--c-rsi:#b794ff;--c-language:#4fd1c5;--c-agents:#a3e635;--c-health:#ff7b6b;--c-social:#ffa94d;--c-edu:#ffc078}
 .maplead{max-width:62ch}
 .net{position:relative;margin-top:1.1rem;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 #net{display:block;width:100%;height:auto;cursor:grab;touch-action:pan-y;-webkit-user-select:none;user-select:none}
@@ -171,9 +172,9 @@ main{min-width:0}
 .xstat{min-height:1.5rem;margin:.35rem 0 .9rem;font-size:.875rem;color:var(--muted)}
 .xstat button{font:inherit;color:var(--accent);background:none;border:0;padding:0;margin-left:.35rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .xt{position:relative;list-style:none;padding-left:32px}
-.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#7a8f2c,#dc7a2a 38%,#b03a2e 70%,#8f3350)}
+.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#65a30d,#f2780c 30%,#ef4a3c 55%,#e11d74 78%,#7c3aed)}
 .role{position:relative;margin-bottom:.8rem;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:opacity .25s,box-shadow .2s,border-color .2s,transform .2s}
-.role:hover{box-shadow:0 10px 24px -16px rgba(90,50,10,.45)}
+.role:hover{box-shadow:0 10px 24px -16px rgba(40,30,70,.28)}
 .role.open{border-color:color-mix(in srgb,var(--dc) 45%,var(--line))}
 .role.dim{opacity:.38}
 .role.rv{opacity:0;transform:translateY(8px)}
@@ -695,7 +696,7 @@ main{min-width:0}
   var T={alignment:'AI alignment and safety',language:'Language and multimodal modeling',agents:'Multi-agent systems',rsi:'Recursive self-improvement',health:'Healthcare',social:'Social systems'};
   var SHORT={alignment:'Alignment',language:'Language',agents:'Multi-agent',rsi:'Self-improvement',health:'Healthcare',social:'Social'};
   var ORDER=['alignment','language','agents','rsi','health','social'];
-  var T0=2018,T1=2026.9, DOTS=['#7a8f2c','#dc7a2a','#c8553a','#b03a2e','#8f3350','#6f4a8e','#8a5a3c','#b0925f'];
+  var T0=2018,T1=2026.9, DOTS=['#65a30d','#f2780c','#ef4a3c','#e11d74','#9333ea','#2563eb','#0d9488','#d97706'];
   var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var ROLES=[
     {title:'Research Software Engineering Intern',org:'Data Science and AI Institute, Johns Hopkins University',when:'Jun to Sep 2026',a:2026.417,b:2026.75,
