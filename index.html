@@ -105,9 +105,9 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
 .interest p{margin-top:.7rem;line-height:1.7}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,2.4vw,28px)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.2vw,28px)}
-.interest:nth-child(4n+2),.card:nth-child(4n+2),.paper:nth-child(4n+2){--card:var(--t2)}
-.interest:nth-child(4n+3),.card:nth-child(4n+3),.paper:nth-child(4n+3){--card:var(--t3)}
-.interest:nth-child(4n+4),.card:nth-child(4n+4),.paper:nth-child(4n+4){--card:var(--t4)}
+.interest:nth-child(4n+2),.card:nth-child(4n+2){--card:var(--t2)}
+.interest:nth-child(4n+3),.card:nth-child(4n+3){--card:var(--t3)}
+.interest:nth-child(4n+4),.card:nth-child(4n+4){--card:var(--t4)}
 .card h3{font-size:1.2rem}
 .card p{margin-top:.7rem;line-height:1.7}
 .card .when{display:block;font-size:.875rem;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -154,20 +154,18 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
 .netpanel .lk{margin-left:.5rem}
 
 /* papers */
-.papers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(16px,2.4vw,28px);align-items:start}
-.paper{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.2vw,28px)}
 .xgrid{display:grid;grid-template-columns:minmax(240px,320px) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:start}
 .xside{position:sticky;top:96px}
 .xside .thr{margin-top:1.1rem}
-.paper h3{font-size:1.125rem;font-weight:700}
-.paper h3 a{color:inherit;text-decoration-color:var(--line)}
-.paper h3 a:hover{color:var(--accent)}
+.plist{display:grid;gap:clamp(20px,2.6vw,30px);max-width:92ch}
+.ptitle{font-size:1.125rem;line-height:1.4;color:var(--muted)}
+.ptitle>a{color:var(--head);font-weight:700;text-decoration-color:var(--line)}
+.ptitle>a:hover{color:var(--accent)}
+.pauth{font-size:.95rem}
+.pauth b{color:var(--head);font-weight:600}
+.pdesc{margin-top:.3rem;max-width:74ch}
 .meta{font-size:.875rem;color:var(--muted);margin-top:.3rem}
 .meta a{margin-left:.6rem}
-.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.8rem}
-.chip{font-size:.78rem;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.15rem .55rem;color:var(--head);font-variant-numeric:tabular-nums}
-.paper .bul{margin-top:.9rem;font-size:.97rem}
-.paper .bul b{color:var(--head)}
 
 /* lists */
 .plain{display:grid;gap:.55rem}
@@ -429,39 +427,23 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
   <section class="sec" id="papers" aria-labelledby="h-papers">
     <div class="wrap">
       <h2 id="h-papers">Papers</h2>
-      <div class="papers gap">
-        <article class="paper">
-          <h3><a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">Can Reasoning Models Detect Changes to Their Chains of Thought?</a></h3>
+      <ul class="plist gap">
+        <li>
+          <p class="ptitle"><a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">Can Reasoning Models Detect Changes to Their Chains of Thought?</a>&nbsp;- <span class="pauth"><b>Sathvik Napa</b>, Utkarsh Singh, Chengyuan Xue, Miriam Wanner, William Walden</span></p>
+          <p class="pdesc">Tests whether reasoning models can tell when their chain of thought has been edited, and finds that detection is modest and about the same for their own chains as for other models' chains.</p>
           <p class="meta">EMNLP 2026<a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/wgantt/cot-interventions" target="_blank" rel="noopener noreferrer">Code</a></p>
-          <div class="chips"><span class="chip">5 models</span><span class="chip">own vs other models' chains</span><span class="chip">edits after and during reasoning</span></div>
-          <ul class="bul">
-            <li><b>Question.</b> Editing a model's chain of thought is a routine intervention, for example to prefill reasoning from a stronger model or to remove steps that lead to unsafe output. Can the model tell that its chain was changed?</li>
-            <li><b>Approach.</b> Chains of thought were modified and shown back to the model, both once reasoning was complete and partway through it. Models were tested on their own chains and on chains written by other models.</li>
-            <li><b>Result.</b> Detection accuracy is modest. Models also struggle to say how a chain was changed, and they notice changes to their own chains about as well as changes to other models' chains.</li>
-          </ul>
-        </article>
-        <article class="paper">
-          <h3><a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">TRACE: Temporal Relationship-Aware Conversational Entrainment Detection in Dyadic Speech</a></h3>
+        </li>
+        <li>
+          <p class="ptitle"><a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">TRACE: Temporal Relationship-Aware Conversational Entrainment Detection in Dyadic Speech</a>&nbsp;- <span class="pauth"><b>Sathvik Manikantan Napa Ugandhar</b>, Hao Zhang, Alison Gunzler, Yuzhe Wang, Thomas Thebaud, Georgi Tinchev, Venkatesh Ravichandran, Laureano Moro-Velazquez</span></p>
+          <p class="pdesc">Detects emotional entrainment between two speakers from the ordered acoustic windows of a conversation, its context, and the speakers' relationship, and releases the DyadEE dataset.</p>
           <p class="meta">IEEE SLT 2026<a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://huggingface.co/datasets/SathvikNapa/TRACE" target="_blank" rel="noopener noreferrer">Dataset</a><a href="https://github.com/SathvikNapa/NaturalnessPrediction" target="_blank" rel="noopener noreferrer">Code</a><a href="https://sathviknapa.github.io/NaturalnessPrediction/" target="_blank" rel="noopener noreferrer">Website</a></p>
-          <div class="chips"><span class="chip">97.01% accuracy</span><span class="chip">300 h of speech</span></div>
-          <ul class="bul">
-            <li><b>Question.</b> As speech agents spread, can a system tell whether two speakers are emotionally coordinating, given who they are to each other and what was said before?</li>
-            <li><b>Approach.</b> TRACE reads a conversation as an ordered sequence of acoustic windows, using embeddings from an emotion fine-tuned Whisper model, instead of pooling each utterance. It also uses conversational context and the relationship between the speakers. The DyadEE dataset pairs real conversations with synthetic ones where entrainment is broken by swapping partners or resynthesizing emotion.</li>
-            <li><b>Result.</b> Context and relationship information both improve detection, and TRACE reaches 97.01% accuracy on DyadEE.</li>
-          </ul>
-        </article>
-        <article class="paper">
-          <h3><a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">SPEARBench: A Benchmark for Naturalness Evaluation in Streaming Speech-to-Speech Language Models</a></h3>
+        </li>
+        <li>
+          <p class="ptitle"><a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">SPEARBench: A Benchmark for Naturalness Evaluation in Streaming Speech-to-Speech Language Models</a>&nbsp;- <span class="pauth">Thomas Thebaud, Yuzhe Wang, Hao Zhang, <b>Sathvik Manikantan Napa Ugandhar</b>, Ashish Hallur, Georgi Tinchev, Venkatesh Ravichandran, Laureano Moro-Velazquez</span></p>
+          <p class="pdesc">An open benchmark of how naturally streaming speech-to-speech models hold a conversation, covering timing, turn-taking, prosody, stance, and dialect.</p>
           <p class="meta">IEEE SLT 2026<a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://thomasthebaud.github.io/SPEAR-benchmark-website/" target="_blank" rel="noopener noreferrer">Website</a></p>
-          <div class="chips"><span class="chip">open benchmark</span><span class="chip">web platform</span></div>
-          <ul class="bul">
-            <li><b>Question.</b> Standard speech and text benchmarks miss whether a speech-to-speech model behaves naturally in conversation: timing, turn-taking, prosody, stance, and dialect all matter.</li>
-            <li><b>Approach.</b> Controlled two-turn question-answer prompts from the Seamless Interaction corpus are run through several models. Answers are scored on latency, interruptions, speech quality, ASR robustness, dialect consistency, emotional naturalness, and interpersonal stance, with human answers as the reference.</li>
-            <li><b>Result.</b> Current models reach high signal quality and low ASR error, yet still differ from people in latency, overlap, dialect preservation, emotional adaptation, and stance.</li>
-            <li><b>Limits.</b> Evaluation is automatic, English-only, and limited to two speakers. A public site lets others compare systems and submit models.</li>
-          </ul>
-        </article>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 
