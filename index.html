@@ -9,18 +9,18 @@
 <style>
 /* Layout: plain academic page. A fixed left column with name and links, one right column of sections. The bio is a short set of stories, each linking to the work behind it. */
 :root{
-  --bg:#ffffff; --card:#fff4e6; --fg:#2e2c3a; --head:#17162b; --muted:#5d5b73; --line:#f0e0cc; --accent:#c2410c; --pop:#f2780c;
+  --bg:#ffffff; --card:#eaf1ff; --fg:#1f2a44; --head:#0b1230; --muted:#52607f; --line:#d5e2fb; --accent:#2457e6; --pop:#3b82f6;
   --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#14131f; --card:#1d1c2c; --fg:#dedcec; --head:#fbfaff; --muted:#a5a3bc; --line:#2f2d45; --accent:#ff9a5c; --pop:#ff9a5c;
+    --bg:#0b1020; --card:#121a33; --fg:#d5def5; --head:#f5f8ff; --muted:#9aa8cc; --line:#223055; --accent:#6ea8ff; --pop:#4cc9f0;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#14131f; --card:#1d1c2c; --fg:#dedcec; --head:#fbfaff; --muted:#a5a3bc; --line:#2f2d45; --accent:#ff9a5c; --pop:#ff9a5c;
+  --bg:#0b1020; --card:#121a33; --fg:#d5def5; --head:#f5f8ff; --muted:#9aa8cc; --line:#223055; --accent:#6ea8ff; --pop:#4cc9f0;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -39,7 +39,7 @@ section[id]{scroll-margin-top:64px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:max(clamp(20px,4vw,56px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,4vw,56px),env(safe-area-inset-right,0px))}
 
 /* top bar with tabs */
-.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#65a30d,#f2780c 30%,#ef4a3c 55%,#e11d74 78%,#7c3aed)}
+.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#2563eb,#0ea5e9 30%,#14b8a6 55%,#8b5cf6 80%,#d946ef)}
 .top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem 1.4rem;min-height:64px;padding-block:.45rem}
 .brand{font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--head);text-decoration:none}
@@ -172,9 +172,9 @@ main{min-width:0}
 .xstat{min-height:1.5rem;margin:.35rem 0 .9rem;font-size:.875rem;color:var(--muted)}
 .xstat button{font:inherit;color:var(--accent);background:none;border:0;padding:0;margin-left:.35rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .xt{position:relative;list-style:none;padding-left:32px}
-.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#65a30d,#f2780c 30%,#ef4a3c 55%,#e11d74 78%,#7c3aed)}
+.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#2563eb,#0ea5e9 30%,#14b8a6 55%,#8b5cf6 80%,#d946ef)}
 .role{position:relative;margin-bottom:.8rem;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:opacity .25s,box-shadow .2s,border-color .2s,transform .2s}
-.role:hover{box-shadow:0 10px 24px -16px rgba(40,30,70,.28)}
+.role:hover{box-shadow:0 10px 24px -16px rgba(30,60,140,.28)}
 .role.open{border-color:color-mix(in srgb,var(--dc) 45%,var(--line))}
 .role.dim{opacity:.38}
 .role.rv{opacity:0;transform:translateY(8px)}
@@ -696,7 +696,7 @@ main{min-width:0}
   var T={alignment:'AI alignment and safety',language:'Language and multimodal modeling',agents:'Multi-agent systems',rsi:'Recursive self-improvement',health:'Healthcare',social:'Social systems'};
   var SHORT={alignment:'Alignment',language:'Language',agents:'Multi-agent',rsi:'Self-improvement',health:'Healthcare',social:'Social'};
   var ORDER=['alignment','language','agents','rsi','health','social'];
-  var T0=2018,T1=2026.9, DOTS=['#65a30d','#f2780c','#ef4a3c','#e11d74','#9333ea','#2563eb','#0d9488','#d97706'];
+  var T0=2018,T1=2026.9, DOTS=['#2563eb','#0ea5e9','#14b8a6','#8b5cf6','#d946ef','#6366f1','#0891b2','#10b981'];
   var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var ROLES=[
     {title:'Research Software Engineering Intern',org:'Data Science and AI Institute, Johns Hopkins University',when:'Jun to Sep 2026',a:2026.417,b:2026.75,
