@@ -9,18 +9,18 @@
 <style>
 /* Layout: plain academic page. A fixed left column with name and links, one right column of sections. The bio is a short set of stories, each linking to the work behind it. */
 :root{
-  --bg:#ffffff; --card:#eaf1ff; --fg:#1f2a44; --head:#0b1230; --muted:#52607f; --line:#d5e2fb; --accent:#2457e6; --pop:#3b82f6;
+  --bg:#ffffff; --card:#ecf8e1; --fg:#1f3322; --head:#0c1f12; --muted:#4f6654; --line:#d3ecbf; --accent:#277a07; --pop:#5cc41f; --lemon:#fff3a3;
   --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0b1020; --card:#121a33; --fg:#d5def5; --head:#f5f8ff; --muted:#9aa8cc; --line:#223055; --accent:#6ea8ff; --pop:#4cc9f0;
+    --bg:#0c150e; --card:#14231a; --fg:#d9ead6; --head:#f4fff0; --muted:#9db79f; --line:#25402b; --accent:#9be564; --pop:#b6f04a; --lemon:#3b3a10;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0b1020; --card:#121a33; --fg:#d5def5; --head:#f5f8ff; --muted:#9aa8cc; --line:#223055; --accent:#6ea8ff; --pop:#4cc9f0;
+  --bg:#0c150e; --card:#14231a; --fg:#d9ead6; --head:#f4fff0; --muted:#9db79f; --line:#25402b; --accent:#9be564; --pop:#b6f04a; --lemon:#3b3a10;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
@@ -32,6 +32,7 @@ ul{list-style:none}
 h1,h2,h3{color:var(--head);line-height:1.25}
 
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+::selection{background:var(--lemon)}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 section[id]{scroll-margin-top:64px}
@@ -39,7 +40,7 @@ section[id]{scroll-margin-top:64px}
 .wrap{max-width:1360px;margin-inline:auto;padding-left:max(clamp(20px,4vw,56px),env(safe-area-inset-left,0px));padding-right:max(clamp(20px,4vw,56px),env(safe-area-inset-right,0px))}
 
 /* top bar with tabs */
-.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#2563eb,#0ea5e9 30%,#14b8a6 55%,#8b5cf6 80%,#d946ef)}
+.top::before{content:"";display:block;height:3px;background:linear-gradient(90deg,#f7e733,#a3e635 28%,#5cc41f 58%,#22c55e 82%,#14b8a6)}
 .top{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;flex-wrap:wrap;gap:.4rem 1.4rem;min-height:64px;padding-block:.45rem}
 .brand{font-weight:700;font-size:1.15rem;letter-spacing:-.01em;color:var(--head);text-decoration:none}
@@ -47,7 +48,7 @@ section[id]{scroll-margin-top:64px}
 .tabs::-webkit-scrollbar{display:none}
 .tabs a{white-space:nowrap;color:var(--muted);text-decoration:none;font-size:.95rem;padding:.45rem .85rem;border-radius:8px;transition:color .15s,background-color .15s}
 .tabs a:hover{color:var(--accent);background:var(--card)}
-.tabs a[aria-current="true"]{color:var(--head);font-weight:600;background:var(--card);box-shadow:inset 0 -2px 0 var(--pop)}
+.tabs a[aria-current="true"]{color:var(--head);font-weight:600;background:var(--lemon);box-shadow:inset 0 -2px 0 var(--pop)}
 .barright{display:flex;align-items:center;gap:.35rem;margin-left:auto}
 .icons{display:flex;gap:.35rem}
 .icons a{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:color .15s,border-color .15s,background-color .15s}
@@ -72,7 +73,7 @@ main{min-width:0}
 
 /* sections */
 .sec{padding-block:clamp(44px,7vw,92px);border-top:1px solid var(--line)}
-.sec h2{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700;letter-spacing:-.015em;margin:0;padding:0;border:0}
+.sec h2{display:inline-block;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:700;letter-spacing:-.015em;margin:0 0 0 -.15em;padding:0 .15em;border:0;background:linear-gradient(transparent 62%,var(--lemon) 62%)}
 .sub{margin-top:.6rem;max-width:68ch;color:var(--muted);font-size:1.0625rem}
 .sec h2+.sub{margin-bottom:0}
 .subhead{margin-top:clamp(36px,5vw,64px);font-size:1.35rem}
@@ -172,9 +173,9 @@ main{min-width:0}
 .xstat{min-height:1.5rem;margin:.35rem 0 .9rem;font-size:.875rem;color:var(--muted)}
 .xstat button{font:inherit;color:var(--accent);background:none;border:0;padding:0;margin-left:.35rem;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .xt{position:relative;list-style:none;padding-left:32px}
-.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#2563eb,#0ea5e9 30%,#14b8a6 55%,#8b5cf6 80%,#d946ef)}
+.xt:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:2px;border-radius:2px;background:linear-gradient(180deg,#f7e733,#a3e635 28%,#5cc41f 58%,#22c55e 82%,#14b8a6)}
 .role{position:relative;margin-bottom:.8rem;background:var(--card);border:1px solid var(--line);border-radius:14px;transition:opacity .25s,box-shadow .2s,border-color .2s,transform .2s}
-.role:hover{box-shadow:0 10px 24px -16px rgba(30,60,140,.28)}
+.role:hover{box-shadow:0 10px 24px -16px rgba(40,110,20,.28)}
 .role.open{border-color:color-mix(in srgb,var(--dc) 45%,var(--line))}
 .role.dim{opacity:.38}
 .role.rv{opacity:0;transform:translateY(8px)}
@@ -696,7 +697,7 @@ main{min-width:0}
   var T={alignment:'AI alignment and safety',language:'Language and multimodal modeling',agents:'Multi-agent systems',rsi:'Recursive self-improvement',health:'Healthcare',social:'Social systems'};
   var SHORT={alignment:'Alignment',language:'Language',agents:'Multi-agent',rsi:'Self-improvement',health:'Healthcare',social:'Social'};
   var ORDER=['alignment','language','agents','rsi','health','social'];
-  var T0=2018,T1=2026.9, DOTS=['#2563eb','#0ea5e9','#14b8a6','#8b5cf6','#d946ef','#6366f1','#0891b2','#10b981'];
+  var T0=2018,T1=2026.9, DOTS=['#4cb814','#9ad41a','#16a34a','#d4c400','#0d9488','#65a30d','#84cc16','#ca8a04'];
   var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   var ROLES=[
     {title:'Research Software Engineering Intern',org:'Data Science and AI Institute, Johns Hopkins University',when:'Jun to Sep 2026',a:2026.417,b:2026.75,
