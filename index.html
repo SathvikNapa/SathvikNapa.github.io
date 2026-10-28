@@ -209,7 +209,7 @@ h2{font-size:1.25rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px soli
         <div class="story">
           <h3>Can a model tell that its reasoning was changed?</h3>
           <p class="topics">AI alignment, safety, introspection</p>
-          <p>Reasoning models write out a chain of thought, and people edit those chains for safety and evaluation: prefilling reasoning from a stronger model, or removing steps that lead to unsafe output. If a model cannot tell when its reasoning has been altered, that is a gap in how we monitor and steer it. I designed the chain-of-thought tampering evaluations in Inspect AI, covering five models, for <a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">Can Reasoning Models Detect Changes to Their Chains of Thought?</a> (EMNLP 2026). Detection was modest, and the <a href="https://github.com/wgantt/cot-interventions" target="_blank" rel="noopener noreferrer">code is public</a>.</p>
+          <p>Reasoning models write out a chain of thought, and people edit those chains for safety and evaluation: prefilling reasoning from a stronger model, or removing steps that lead to unsafe output. If a model cannot tell when its reasoning has been altered, that is a gap in how we monitor and steer it. The paper <a href="https://arxiv.org/abs/2606.22085" target="_blank" rel="noopener noreferrer">Can Reasoning Models Detect Changes to Their Chains of Thought?</a> (EMNLP 2026) tests this on five models in Inspect AI. Detection was modest, and the <a href="https://github.com/wgantt/cot-interventions" target="_blank" rel="noopener noreferrer">code is public</a>.</p>
         </div>
 
         <div class="story">
@@ -270,26 +270,24 @@ h2{font-size:1.25rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px soli
             <li><b>Question.</b> Editing a model's chain of thought is a routine intervention, for example to prefill reasoning from a stronger model or to remove steps that lead to unsafe output. Can the model tell that its chain was changed?</li>
             <li><b>Approach.</b> Chains of thought were modified and shown back to the model, both once reasoning was complete and partway through it. Models were tested on their own chains and on chains written by other models.</li>
             <li><b>Result.</b> Detection accuracy is modest. Models also struggle to say how a chain was changed, and they notice changes to their own chains about as well as changes to other models' chains.</li>
-            <li><b>My part.</b> I designed the tampering evaluations in Inspect AI, covering five models.</li>
           </ul>
         </article>
 
         <article class="paper">
           <h3><a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">TRACE: Temporal Relationship-Aware Conversational Entrainment Detection in Dyadic Speech</a></h3>
           <p class="meta">IEEE SLT 2026<a href="https://arxiv.org/abs/2606.30543" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://huggingface.co/datasets/SathvikNapa/TRACE" target="_blank" rel="noopener noreferrer">Dataset</a><a href="https://github.com/SathvikNapa/NaturalnessPrediction" target="_blank" rel="noopener noreferrer">Code</a><a href="https://sathviknapa.github.io/NaturalnessPrediction/" target="_blank" rel="noopener noreferrer">Website</a></p>
-          <div class="chips"><span class="chip">97.01% accuracy</span><span class="chip">300 h of speech</span><span class="chip">first author</span></div>
+          <div class="chips"><span class="chip">97.01% accuracy</span><span class="chip">300 h of speech</span></div>
           <ul class="bul">
             <li><b>Question.</b> As speech agents spread, can a system tell whether two speakers are emotionally coordinating, given who they are to each other and what was said before?</li>
             <li><b>Approach.</b> TRACE reads a conversation as an ordered sequence of acoustic windows, using embeddings from an emotion fine-tuned Whisper model, instead of pooling each utterance. It also uses conversational context and the relationship between the speakers. The DyadEE dataset pairs real conversations with synthetic ones where entrainment is broken by swapping partners or resynthesizing emotion.</li>
             <li><b>Result.</b> Context and relationship information both improve detection, and TRACE reaches 97.01% accuracy on DyadEE.</li>
-            <li><b>My part.</b> First author. I built the transformers that fuse acoustic and text representations.</li>
           </ul>
         </article>
 
         <article class="paper">
           <h3><a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">SPEARBench: A Benchmark for Naturalness Evaluation in Streaming Speech-to-Speech Language Models</a></h3>
           <p class="meta">IEEE SLT 2026<a href="https://arxiv.org/abs/2607.05365" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://thomasthebaud.github.io/SPEAR-benchmark-website/" target="_blank" rel="noopener noreferrer">Website</a></p>
-          <div class="chips"><span class="chip">open benchmark</span><span class="chip">web platform</span><span class="chip">co-author</span></div>
+          <div class="chips"><span class="chip">open benchmark</span><span class="chip">web platform</span></div>
           <ul class="bul">
             <li><b>Question.</b> Standard speech and text benchmarks miss whether a speech-to-speech model behaves naturally in conversation: timing, turn-taking, prosody, stance, and dialect all matter.</li>
             <li><b>Approach.</b> Controlled two-turn question-answer prompts from the Seamless Interaction corpus are run through several models. Answers are scored on latency, interruptions, speech quality, ASR robustness, dialect consistency, emotional naturalness, and interpersonal stance, with human answers as the reference.</li>
