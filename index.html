@@ -41,13 +41,14 @@ h1,h2,h3{color:var(--head);line-height:1.25}
 .side ul{margin-top:1.2rem;display:grid;gap:.3rem;font-size:.95rem}
 .iconrow{margin-top:1.2rem;display:flex;flex-wrap:wrap;align-items:center;gap:.35rem}
 .side ul.icons{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:0}
-.themebtn{display:grid;place-items:center;width:40px;height:40px;padding:0;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}
+.themebtn{display:grid;place-items:center;position:absolute;top:16px;right:16px;z-index:30;width:40px;height:40px;padding:0;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer;transition:color .15s,border-color .15s,background-color .15s}
 .themebtn:hover,.themebtn:focus-visible{color:var(--accent);border-color:var(--accent);background:var(--card)}
 .themebtn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .themebtn .sun{display:none}
 .themebtn[data-mode="dark"] .sun{display:block}
 .themebtn[data-mode="dark"] .moon{display:none}
 .ind{margin-top:1rem}
+@media (min-width:1100px){.themebtn{position:fixed}}
 .icons a{display:grid;place-items:center;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);color:var(--muted);text-decoration:none;transition:color .15s,border-color .15s,background-color .15s}
 .icons a:hover,.icons a:focus-visible{color:var(--accent);border-color:var(--accent);background:var(--card)}
 .icons svg{width:20px;height:20px;fill:currentColor}
@@ -198,6 +199,7 @@ h2{font-size:1.25rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px soli
 <body>
 
 
+<button class="themebtn" id="themeBtn" type="button" data-mode="light" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
 <div class="page">
   <div class="layout">
     <aside class="side">
@@ -211,7 +213,6 @@ h2{font-size:1.25rem;font-weight:700;padding-bottom:.5rem;border-bottom:1px soli
         <li><a href="https://scholar.google.com/citations?user=_w0OrmQAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a></li>
         <li><a href="https://orcid.org/0009-0001-0818-0283" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></a></li>
       </ul>
-      <button class="themebtn" id="themeBtn" type="button" data-mode="light" aria-label="Switch to dark mode" title="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
       </div>
       <p class="mail">snapaug1@jh.edu</p>
       <footer>&copy; 2026 Sathvik</footer>
