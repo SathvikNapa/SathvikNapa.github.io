@@ -172,6 +172,9 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
 .plain b{color:var(--head)}
 .mailrow{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .8rem}
 .mailrow code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.95rem;user-select:all;word-break:break-all;color:var(--head)}
+.mailrow+.mailrow{margin-top:.7rem}
+.mlab{min-width:5.5rem;font-size:.8125rem;color:var(--muted)}
+@media(max-width:520px){.mlab{min-width:100%}.mailrow{gap:.2rem .8rem}.mailrow+.mailrow{margin-top:1rem}}
 .copy{font-family:inherit;font-size:.8125rem;color:var(--head);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:.25rem .7rem;cursor:pointer}
 .copy:hover{border-color:var(--accent);color:var(--accent)}
 
@@ -278,7 +281,7 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
       <div class="intro">
         <p class="lead">I study how language models and agentic systems behave when the scenario changes: a different prompt, a harder push, a new conversation partner, an edit to their own reasoning. My research interests span AI alignment, reasoning, factuality, safety, multi-agent systems, and speech and multimodal modeling. I want to understand the emergent behavior of these systems, and to test it before they are used in high-stakes healthcare, social systems, and education. On the applied side, I build ML systems in clinical AI (<a href="https://endoscribe-prod.fly.dev/" target="_blank" rel="noopener noreferrer">EndoScribe</a>, CAPS) and social systems (<a href="https://survey.support360.org/" target="_blank" rel="noopener noreferrer">SurvQuire</a>).</p>
         <p class="ind">In industry, I worked in applied ML and NLP roles at SolarWinds and SupportLogic, building production systems for retrieval-augmented generation, root-cause analysis with graph algorithms, multiagent systems, and LLM evaluation.</p>
-        <p class="mail">snapaug1@jh.edu</p>
+        <p class="mail">snapaug1@jh.edu<br>sathvik.napa@gmail.com</p>
       </div>
     </section>
   </div>
@@ -514,8 +517,14 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
     <div class="wrap">
       <h2 id="h-contact">Contact</h2>
       <div class="mailrow gap">
-        <code id="mailText">snapaug1@jh.edu</code>
-        <button class="copy" id="copyBtn" type="button">Copy</button>
+        <span class="mlab">University</span>
+        <code>snapaug1@jh.edu</code>
+        <button class="copy" type="button">Copy</button>
+      </div>
+      <div class="mailrow">
+        <span class="mlab">Personal</span>
+        <code>sathvik.napa@gmail.com</code>
+        <button class="copy" type="button">Copy</button>
       </div>
     </div>
   </section>
@@ -525,21 +534,23 @@ a.bub::after{content:"\2197";font-size:.8em;color:var(--muted)}
 
 <script>
 (function(){
-  var btn=document.getElementById('copyBtn'), txt=document.getElementById('mailText'), t;
-  function flash(m){ btn.textContent=m; clearTimeout(t); t=setTimeout(function(){ btn.textContent='Copy'; },1800); }
-  function selectText(){
-    var r=document.createRange(); r.selectNodeContents(txt);
-    var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
-  }
-  btn.addEventListener('click',function(){
-    var started=false;
-    try{
-      if(navigator.clipboard&&navigator.clipboard.writeText){
-        started=true;
-        navigator.clipboard.writeText(txt.textContent).then(function(){ flash('Copied'); },function(){ selectText(); flash('Selected'); });
-      }
-    }catch(e){ started=false; }
-    if(!started){ selectText(); flash('Selected'); }
+  Array.prototype.forEach.call(document.querySelectorAll('.mailrow'),function(row){
+    var btn=row.querySelector('.copy'), txt=row.querySelector('code'), t;
+    function flash(m){ btn.textContent=m; clearTimeout(t); t=setTimeout(function(){ btn.textContent='Copy'; },1800); }
+    function selectText(){
+      var r=document.createRange(); r.selectNodeContents(txt);
+      var s=window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+    btn.addEventListener('click',function(){
+      var started=false;
+      try{
+        if(navigator.clipboard&&navigator.clipboard.writeText){
+          started=true;
+          navigator.clipboard.writeText(txt.textContent).then(function(){ flash('Copied'); },function(){ selectText(); flash('Selected'); });
+        }
+      }catch(e){ started=false; }
+      if(!started){ selectText(); flash('Selected'); }
+    });
   });
 })();
 </script>
